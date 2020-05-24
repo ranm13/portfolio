@@ -6,18 +6,20 @@ import About from '../components/pages/About';
 import Skills from '../components/pages/Skills';
 import Portfolio from '../components/pages/Portfolio';
 import Contact from '../components/pages/Contact';
-import MenuBar from "../components/menu-bar/MenuBar";
+import NavBar from "../components/menu-bar/NavBar";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <MenuBar />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/skills" component={Skills} />
-        <Route exact path="/portfolio" component={Portfolio} />
-        <Route exact path="/contact" component={Contact} />
+        <NavBar />
+        <main>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/skills" component={Skills} />
+          <Route exact path="/portfolio" component={Portfolio} />
+          <Route exact path="/contact" component={Contact} />
+        </main>
       </div>
     </Router>
   );
