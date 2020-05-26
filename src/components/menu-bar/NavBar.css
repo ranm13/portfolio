@@ -2,7 +2,7 @@
 .navbar {
   position: fixed;
   background-color: var(--secondary-background-color);
-  transition: width 600ms ease;
+  /* transition: width 600ms ease; */
 }
 
 .navbar-nav {
@@ -19,6 +19,10 @@
   width: 100%;
 }
 
+.nav-item:first-child {
+  margin-top: auto;
+}
+
 .nav-item:last-child {
   margin-top: auto;
 }
@@ -33,19 +37,9 @@
   transition: var(--transition-speed);
 }
 
-.logo .nav-link:hover, .nav-link.external:hover{
-  background: var(--secondary-background-color);
-}
-
-.nav-link:hover {
+.nav-link:hover, .nav-link.external:hover{
   filter: grayscale(0%) opacity(1);
-  background: var(--primary-background-color);
   color: var(--secondary-text-color);
-}
-
-.link-text {
-  display: none;
-  margin-left: 1rem;
 }
 
 .nav-link svg {
@@ -59,7 +53,7 @@
 .logo {
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   text-align: center;
   color: var(--secondary-text-color);
   background: var(--secondary-background-color);
@@ -68,29 +62,12 @@
   width: 100%;
 }
 
-.logo svg {
-  transform: rotate(0deg);
-  transition: var(--transition-speed);
-}
-
-.logo-text
-{
-  display: inline;
-  position: absolute;
-  left: -999px;
-  transition: var(--transition-speed);
-}
-
-.navbar:hover .logo svg {
-  transform: rotate(-180deg);
-}
-
 .external-links{
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  height: 100%;
+  height: 20%;
 }
 
 .nav-link.external{
@@ -139,24 +116,48 @@
     height: 100vh;
   }
 
-  .navbar:hover {
-    width: 16rem;
-  }
-
-  .navbar:hover .link-text {
-    display: inline;
-  }
-
-  .navbar:hover .logo svg
-  {
-    margin-left: 12rem;
-  }
-
-  .navbar:hover .logo-text
-  {
-    left: 0px;
-  }
 }
 
 
 /*fade in and fade out animations*/
+.page-link{
+  opacity: 1;
+  -webkit-transition: opacity var(--transition-speed) ease-in-out;
+  -moz-transition: opacity var(--transition-speed) ease-in-out;
+  -ms-transition: opacity var(--transition-speed) ease-in-out;
+  -o-transition: opacity var(--transition-speed) ease-in-out;
+  transition: opacity var(--transition-speed) ease-in-out;
+}
+
+.link-text{
+  opacity: 0;
+  -webkit-transition: opacity var(--transition-speed) ease-in-out;
+  -moz-transition: opacity var(--transition-speed) ease-in-out;
+  -ms-transition: opacity var(--transition-speed) ease-in-out;
+  -o-transition: opacity var(--transition-speed) ease-in-out;
+  transition: opacity var(--transition-speed) ease-in-out;
+  display: inline-block;
+  position: absolute;
+  width:100%;
+  text-align: center;
+}
+
+.nav-item:hover .page-link{
+  opacity: 0;
+  -webkit-transition: opacity var(--transition-speed) ease-in-out;
+  -moz-transition: opacity var(--transition-speed) ease-in-out;
+  -ms-transition: opacity var(--transition-speed) ease-in-out;
+  -o-transition: opacity var(--transition-speed) ease-in-out;
+  transition: opacity var(--transition-speed) ease-in-out;
+}
+
+.nav-item:hover .link-text{
+  opacity: 1;
+  -webkit-transition: opacity var(--transition-speed) ease-in-out;
+  -moz-transition: opacity var(--transition-speed) ease-in-out;
+  -ms-transition: opacity var(--transition-speed) ease-in-out;
+  -o-transition: opacity var(--transition-speed) ease-in-out;
+  transition: opacity var(--transition-speed) ease-in-out;
+  filter: grayscale(0%) opacity(1);
+  color: var(--secondary-text-color);
+}

@@ -9,8 +9,7 @@ import {
   FaUserAlt,
   FaHome,
   FaRegEye,
-  FaCog,
-  FaAngleDoubleRight
+  FaCog
 } from "react-icons/fa";
 import "./NavBar.css";
 
@@ -20,8 +19,7 @@ const NavBar = function() {
     <ul className="navbar-nav">
       <li className="logo">
         <div className="nav-link">
-          <span className="link-text logo-text">Logo Stuff</span>
-          <FaAngleDoubleRight />
+          <span className="link-text logo-text">Logo</span>
         </div>
       </li>
 
