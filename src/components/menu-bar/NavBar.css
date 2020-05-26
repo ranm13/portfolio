@@ -33,6 +33,10 @@
   transition: var(--transition-speed);
 }
 
+.logo .nav-link:hover, .nav-link.external:hover{
+  background: var(--secondary-background-color);
+}
+
 .nav-link:hover {
   filter: grayscale(0%) opacity(1);
   background: var(--primary-background-color);
@@ -153,3 +157,6 @@
     left: 0px;
   }
 }
+
+
+/*fade in and fade out animations*/
