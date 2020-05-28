@@ -2,7 +2,6 @@
 .navbar {
   position: fixed;
   background-color: var(--secondary-background-color);
-  /* transition: width 600ms ease; */
 }
 
 .navbar-nav {
@@ -17,10 +16,6 @@
 
 .nav-item {
   width: 100%;
-}
-
-.nav-item:first-child {
-  margin-top: auto;
 }
 
 .nav-item:last-child {
@@ -48,20 +43,6 @@
   margin: 0 1.5rem;
   font-size: 1.8rem;
 }
-
-/*logo stuff*/
-.logo {
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 3rem;
-  text-align: center;
-  color: var(--secondary-text-color);
-  background: var(--secondary-background-color);
-  font-size: 1.5rem;
-  letter-spacing: 0.3ch;
-  width: 100%;
-}
-
 .external-links{
   display: flex;
   flex-direction: column;
@@ -78,6 +59,18 @@
   font-size: 1.5rem;
 }
 
+/*logo stuff*/
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: var(--secondary-text-color);
+  background: var(--secondary-background-color);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
@@ -119,7 +112,7 @@
 }
 
 
-/*fade in and fade out animations*/
+/*fade in and fade out animations ON HOVER*/
 .page-link{
   opacity: 1;
   -webkit-transition: opacity var(--transition-speed) ease-in-out;
