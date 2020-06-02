@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import sendmail from 'sendmail';
-const Sendmail = sendmail({silent: true});
+import axios from 'axios';
 // import "./Contact.css";
 
 class Contact extends Component{
@@ -10,7 +9,8 @@ class Contact extends Component{
       name: "",
       email: "",
       subject: "",
-      message: ""
+      message: "",
+      isSaving: false
     }
   }
 
@@ -36,7 +36,18 @@ class Contact extends Component{
     }
   
   send = () => {
+    this.setState({ isSaving: true });
+    
+    let data = {
+      name: this.state.name,
+      email: this.state.email,
+      subject: this.state.subject,
+      message: this.state.message
+    }
 
+    axios.post('http://localhost:4000/api/sendMail', data)
+      .then(() => this.setState({ isSaving: false }))
+      .catch(() =>this.setState({ isSaving: false }))
   }
 }
 
