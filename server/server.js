@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const api = require('./routes/api.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -12,5 +13,6 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use("/api", api);
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
