@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import Sendmail from 'sendmail';
+const sendmail = Sendmail();
 // import "./Contact.css";
 
 class Contact extends Component{
