@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Sendmail from 'sendmail';
-const sendmail = Sendmail();
+import sendmail from 'sendmail';
+const Sendmail = sendmail({silent: true});
 // import "./Contact.css";
 
 class Contact extends Component{
@@ -35,7 +35,9 @@ class Contact extends Component{
       this.setState({ [changedKey] : e.target.value });
     }
   
-  send = () => {}
+  send = () => {
+
   }
+}
 
 export default Contact;
