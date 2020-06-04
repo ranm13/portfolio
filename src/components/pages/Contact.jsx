@@ -37,17 +37,17 @@ class Contact extends Component{
   
   send = () => {
     this.setState({ isSaving: true });
-    
+
     let data = {
       name: this.state.name,
       email: this.state.email,
       subject: this.state.subject,
       message: this.state.message
-    }
+    };
 
     axios.post('http://localhost:4000/api/sendMail', data)
       .then(() => this.setState({ isSaving: false }))
-      .catch(() =>this.setState({ isSaving: false }))
+      .catch(() =>this.setState({ isSaving: false }));
   }
 }
 
