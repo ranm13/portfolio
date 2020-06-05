@@ -29,6 +29,14 @@
     border-radius: 5px;
 }
 
+.contact-info .field:active, .contact-info .field:focus{
+    outline: var(--secondary-text-color) solid 1px;
+}
+
+.contact-info .field.error{
+    outline: red solid 1px;
+}
+
 .contact-info .field.half{
     width: 49%;
     margin-left: 2%;
