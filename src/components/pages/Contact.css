@@ -33,7 +33,7 @@
     outline: var(--secondary-text-color) solid 1px;
 }
 
-.contact-info .field.error{
+.contact-info .field.invalid{
     outline: red solid 1px;
 }
 
