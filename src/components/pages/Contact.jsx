@@ -62,6 +62,12 @@ class Contact extends Component{
     let isValid = true;
     let errors = {name: false, subject: false, message: false, email: false};
 
+    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    isValid = regex.test(this.state.email.toLowerCase());
+    if(!isValid){
+      errors.email = true;
+    }
+    
     if(!this.state.name || this.state.name.length < 3){
       isValid = false;
       errors.name = true;
@@ -77,11 +83,7 @@ class Contact extends Component{
       errors.message = true;
     }
 
-    if(!this.state.email){
-      const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      isValid = regex.test(String(this.state.email).toLowerCase());
-      errors.email = true;
-    }
+
 
     this.setState({ errors });
     return isValid;
