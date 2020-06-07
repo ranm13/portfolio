@@ -40,6 +40,7 @@ class Contact extends Component{
   }
   
   send = () => {
+
     let areAllFieldsValid = this.validateFields();
 
     if(!areAllFieldsValid) return;
@@ -54,15 +55,37 @@ class Contact extends Component{
     };
 
     axios.post('http://localhost:4000/api/sendMail', data)
-      .then(() => this.setState({ isSaving: false }))
-      .catch(() =>this.setState({ isSaving: false }));
+      .then(() => {
+        this.setState({ isSaving: false }, () =>{
+          this.props.toast.success('🦄 Wow so easy!', {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: true,
+            progress: undefined,
+            });
+        })
+    })
+      .catch(() =>{
+        this.setState({ isSaving: false }, () =>{
+          this.props.toast.error('🦄 Wow so easy!', {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: true,
+            progress: undefined,
+            });
+        })
+      });
   }
 
   validateFields = () => {
     let isValid = true;
     let errors = {name: false, subject: false, message: false, email: false};
 
-    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     isValid = regex.test(this.state.email.toLowerCase());
     if(!isValid){
       errors.email = true;
