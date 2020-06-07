@@ -20,7 +20,7 @@ class Contact extends Component{
     return (
       <div className="contact-page-container">
         <h1>Contact me</h1>
-        <p>Explanation paragraph</p>
+        <p>I am available for hire and open to any ideas of cooperation.</p>
     
         <form className="contact-info" autoComplete="off" >
           <input className={`field half ${errors.name? "invalid" : ""}`} placeholder="Name" name="name" value={this.state.name} type="text" onChange={this.onInputValueChange}/>
@@ -67,7 +67,7 @@ class Contact extends Component{
     if(!isValid){
       errors.email = true;
     }
-    
+
     if(!this.state.name || this.state.name.length < 3){
       isValid = false;
       errors.name = true;
