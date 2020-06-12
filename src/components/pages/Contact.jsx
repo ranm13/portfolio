@@ -57,7 +57,7 @@ class Contact extends Component{
     axios.post('http://localhost:4000/api/sendMail', data)
       .then(() => {
         this.setState({ isSaving: false }, () =>{
-          this.props.toast.success('🦄 Wow so easy!', { //change that message
+          this.props.toast.success('Your message has been delivered', { //change that message
             position: "bottom-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -69,7 +69,7 @@ class Contact extends Component{
     })
       .catch(() =>{
         this.setState({ isSaving: false }, () =>{
-          this.props.toast.error('🦄 Wow so easy!', {//change that message
+          this.props.toast.error('Message was not sent', {//change that message
             position: "bottom-right",
             autoClose: 3000,
             hideProgressBar: false,
